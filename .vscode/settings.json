@@ -1,8 +1,12 @@
 {
     "files.exclude": {
-        "node_modules/": false,
-        "**/*.js": false,
-        "**/*.d.ts": false,
-        "**/*.js.map": false
+        "node_modules/": true,
+        "**/*.js": {
+            "when": "$(basename).ts"
+        },
+        "**/*.d.ts": {
+            "when": "$(basename).ts"
+        },
+        "**/*.js.map": true
     }
 }
