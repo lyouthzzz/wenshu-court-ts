@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "TS - Compile current file",
+            "type": "shell",
+            "command": "tsc --build tsconfig.json",
+            "problemMatcher": ["$tsc"]
+        }
+    ],
+}
