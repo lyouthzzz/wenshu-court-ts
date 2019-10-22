@@ -2,7 +2,7 @@ import jsdom = require("jsdom");
 import axios = require('axios');
 const { random, cipherText, DES3 } = require('./Decrypt');
 
-(async function doCreak() {
+(async function doCrack() {
     let indexUrl = 'http://wenshu.court.gov.cn/';
     const cookieJar = new jsdom.CookieJar();
     let options: jsdom.FromUrlOptions = {
