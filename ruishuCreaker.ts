@@ -33,7 +33,7 @@ const { random, cipherText, DES3 } = require('./Decrypt');
             'Accept': 'application/json, text/javascript, */*; q=0.01',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Referer': 'http://wenshu.court.gov.cn/website/wenshu/181217BMTKHNT2W0/index.html?&s21=%E5%B0%8F%E7%B1%B3%E7%A7%91%E6%8A%80',
+            'Referer': 'http://wenshu.court.gov.cn/website/wenshu/181217BMTKHNT2W0/index.html',
             'Cookie': cookie
         },
         transformRequest: [function (data) {
@@ -50,9 +50,9 @@ const { random, cipherText, DES3 } = require('./Decrypt');
         '__RequestVerificationToken': random(24),
         'cfg': 'com.lawyee.judge.dc.parse.dto.SearchDataDsoDTO@docInfoSearch'
     }
-    let listResponse: axios.AxiosResponse = await axios.default.post(postUrl, detailBody, config);
-    if (listResponse.status === 200) {
-        let text = DES3.decrypt(listResponse.data.result, listResponse.data.secretKey);
+    let response: axios.AxiosResponse = await axios.default.post(postUrl, detailBody, config);
+    if (response.status === 200) {
+        let text = DES3.decrypt(response.data.result, response.data.secretKey);
         console.log(text);
     }
 
